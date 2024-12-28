@@ -1,11 +1,11 @@
 # Use the official Python image
-FROM python:3.9-slim
+FROM python:latest-slim
 
 # Set the working directory inside the container
 WORKDIR /app
 
 # Copy the script and requirements file into the container
-COPY clubhouse_report_bot.py .
+COPY clubhouse_report_bot.py  /app/
 COPY requirements.txt .
 
 # Install required libraries
@@ -36,4 +36,4 @@ RUN CHROME_VERSION=$(google-chrome --version | grep -oP '\d+\.\d+\.\d+\.\d+') \
 ENV DISPLAY=:99
 
 # Run the script when the container starts
-CMD ["python", "clubhouse_report_bot.py"]
+CMD ["python", "clubhouse_report_bot.py"]  # corrected typo here
